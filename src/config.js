@@ -9,5 +9,5 @@ export const metaData = {
 
 export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/tiwa-adejuyigbe",
-  email: "mailto:me@adejuyigbe.com",
+  email: "mailto:mail@t18e.com",
 };
