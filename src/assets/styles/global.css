@@ -2,20 +2,29 @@
   background-color: #47a3f3;
   color: #fefefe;
 }
-
 /* Dark theme colors */
 [data-theme="dark"] {
   background-color: #121212;
 }
-
 html {
   min-width: 360px;
+  font-size: 16px; /* Base font size for desktop */
 }
-
+/* Mobile text size adjustments */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* Reduced base font size for tablet */
+  }
+}
+@media (max-width: 480px) {
+  html {
+    font-size: 12px; /* Further reduced for mobile phones */
+  }
+}
 .prose {
   @apply text-[#333333] dark:text-[#D4D4D4];
+  font-size: 1rem; /* Using rem units to respect the html base font size */
 }
-
 .prose .anchor {
   @apply absolute invisible no-underline;
   margin-left: -1em;
@@ -24,51 +33,41 @@ html {
   max-width: 700px;
   cursor: pointer;
 }
-
 .anchor:hover {
   @apply visible;
 }
-
 .prose a {
   @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-normal text-[#333333] dark:text-[#D4D4D4];
 }
-
 .prose a:hover {
   @apply dark:decoration-neutral-400 decoration-neutral-600;
 }
-
 .prose .anchor:after {
   @apply text-neutral-300 dark:text-neutral-700;
   content: "#";
 }
-
 .prose *:hover > .anchor {
   @apply visible;
 }
-
 .prose pre {
   @apply !bg-[#F7F7F7] dark:bg-[#181818] rounded-lg overflow-x-auto;
 }
-
 .prose code {
   @apply px-1 py-0.5 rounded-lg;
+  font-size: 0.9em; /* Slightly smaller than regular text */
 }
-
 .prose pre code {
   @apply p-0;
   border: initial;
   line-height: 1.5;
 }
-
 .prose code span {
   @apply font-medium;
 }
-
 .prose img {
   /* Don't apply styles to next/image */
   @apply m-0;
 }
-
 .prose h2,
 h3,
 h4,
@@ -76,26 +75,37 @@ h5,
 h6 {
   @apply font-medium tracking-tight !important;
 }
-
+/* Responsive heading sizes */
+.prose h2 {
+  font-size: 1.75rem;
+}
+.prose h3 {
+  font-size: 1.5rem;
+}
+.prose h4 {
+  font-size: 1.25rem;
+}
+.prose h5 {
+  font-size: 1.1rem;
+}
+.prose h6 {
+  font-size: 1rem;
+}
 .prose strong {
   @apply font-medium;
 }
-
 .prose > :first-child {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
 }
-
 pre::-webkit-scrollbar {
   display: none;
 }
-
 pre {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
 /* Remove Safari input shadow on mobile */
 input[type="text"],
 input[type="email"] {
@@ -103,27 +113,39 @@ input[type="email"] {
   -moz-appearance: none;
   appearance: none;
 }
-
 .prose .tweet a {
   text-decoration: inherit;
   font-weight: 500;
 }
-
 table {
   display: block;
   max-width: fit-content;
   overflow-x: auto;
   white-space: nowrap;
+  font-size: 0.9rem; /* Slightly smaller text for tables */
 }
-
+@media (max-width: 480px) {
+  table {
+    font-size: 0.8rem; /* Even smaller on mobile */
+  }
+}
 .prose .callout > p {
   margin: 0 !important;
 }
-
 .title {
   text-wrap: balance;
+  font-size: 2rem; /* Desktop title size */
 }
-
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.75rem; /* Tablet title size */
+  }
+}
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem; /* Mobile title size */
+  }
+}
 [data-theme="dark"] .astro-code ,
 [data-theme="dark"] .astro-code span {
   color: var(--shiki-dark) !important;
